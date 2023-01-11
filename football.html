@@ -22,8 +22,13 @@
 
         .messi{
             width: 450px;
-            transform: rotate(60deg);
+            transform: rotate(70deg);
             transition: transform 0.6s ease-in;
+            animation-name: messi_kick;
+            animation-timing-function: ease;
+            animation-iteration-count: 2;
+            animation-direction: alternate;
+            animation-duration: 1s;
         }
 
         .football{
@@ -32,25 +37,102 @@
             left: 0px;
             bottom: 0px;
             transition:left 0.6s linear 0.7s;
+            animation-name: ball;
+            /* animation-iteration-count: 2; */
+            /* animation-direction: alternate; */
+            animation-fill-mode: forwards;
+            animation-duration: 0.8s;
+            animation-delay: 1s;
         }
 
         .goalpost{
             width: 250px;
-            margin-top: 65px;
+            /* margin-top: 65px; */
         }
+
+        .goal_msg {
+	        width: 300px;
+	        text-align: center;
+	        position: relative;
+	        left: -230px;
+	        font-size: 50px;
+	        font-family: consolas;
+	        letter-spacing: 5px;
+	        color: orange;
+	        opacity: 0;
+	        visibility: hidden;
+            animation-name: goal_celeb;
+            animation-delay: 2s;
+            animation-timing-function: linear;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .goal_msg h2{
+            font-size: 7    0px;
+	        font-family: consolas;
+	        letter-spacing: 5px;
+	        color: orange;
+            white-space: nowrap;
+        }
+
+        /* Animation */
         
-        /* hover sec */
 
-        .field:hover .messi{
-            transform:translate(165px) rotate(40deg);
+
+        @keyframes messi_kick {
+            0%{
+                transform: rotate(80deg);
+            }
+
+            50%{
+                transform: translateX(160px) rotate(50deg);
+            }
+
+            100%{
+                transform: translateX(160px) rotate(45deg);
+            }
         }
 
-        .field:hover .football{
-            left: 700px;
-            /* bottom: 50px; */
+        @keyframes ball {
+            0%{
+                left: 0px;
+                bottom: 0px;
+            }
+
+            50%{
+                bottom: 200px;
+            }
+
+
+
+            100%{
+                left: 700px;
+                transform: translate(40px 0px);
+                bottom: 35px;
+            }
         }
 
-    
+
+
+        @keyframes goal_celeb {
+            
+            0%{
+                opacity: 0;
+	            visibility: hidden;
+            }
+
+            50%{
+                opacity: 0.5;
+	            visibility: visible;
+            }
+
+            100%{
+                opacity: 1;
+	            visibility: visible;
+            }
+
+        }
 
     </style>
 </head>
@@ -66,11 +148,17 @@
             <img src="./images/My project(1).png" alt="" class="football">
         </div>
 
+        <div class="goal_msg">
+            <h2>🎉 GOAL 🎉</h2>
+        </div>
+
         <div class="goalpost">
             <img src="./images/football-goal-37058.png" alt="" class="goalpost">
         </div>
 
     </div>
+
+    
 
 </body>
 </html>
